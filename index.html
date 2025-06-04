@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória Especial</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px 0;
+            background-image: linear-gradient(to bottom, #111, #222);
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            border: 1px solid #ff5555;
+        }
+        .header h2 {
+            font-size: 18px;
+            background-color: white;
+            color: #ff5555;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+        .spotify iframe {
+            margin: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .photo-container img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #ff5555;
+            box-shadow: 0 0 15px rgba(255, 85, 85, 0.3);
+        }
+        .timer {
+            font-size: 18px;
+            margin: 15px 0;
+            color: #ff9999;
+        }
+        .message {
+            font-size: 14px;
+            margin: 15px 0;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.6;
+            text-align: left;
+            border-left: 3px solid #ff5555;
+        }
+        .cartas-section {
+            margin: 25px 0 10px 0;
+            padding: 15px;
+            background-color: #222;
+            border-radius: 10px;
+            border: 1px solid #ff5555;
+        }
+        .cartas-section h3 {
+            color: #ff5555;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .carta {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff5555;
+            margin-bottom: 15px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .carta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 85, 85, 0.2);
+        }
+        .carta h4 {
+            margin: 0 0 5px 0;
+            color: #ff9999;
+            font-size: 16px;
+        }
+        .carta p {
+            font-size: 14px;
+            margin: 10px 0;
+            line-height: 1.5;
+            color: #eee;
+        }
+        .carta small {
+            color: #aaa;
+            font-size: 12px;
+            display: block;
+            margin-top: 10px;
+        }
+        #dias-status {
+            color: #ff9999;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2 id="custom-name">Eu amo você Soraya</h2>
+        </div>
+        <div class="spotify">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0A6SJuOLXzBIVVxzOFdYMK?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="photo-container">
+            <img id="photo" src="image.jpeg" alt="Foto Especial">
+        </div>
+        <div class="timer">
+            <h3>Love story start:</h3>
+            <p id="time-counter"></p>
+        </div>
+        <div class="message">
+            <p id="custom-text">Eu sei que eu já te dei muuuuitas flores, todas as vezes que saímos eu dou um jeito de te dar uma florzinha, mas eu te garanto que essa é especial. 
+
+                Você merece o mundo Soraya, eu agradeço todos os dias por ter você na minha vida, uma pessoa que eu amo de verdade e me sinto amado também.
+                
+                Você Soraya é minha felicidade, faz meus dias serem mais felizes ao seu lado, desde o primeiro dia em que viemos pra cá eu senti q vc era diferente e eu queria algo muito maior. 
+                
+                Soraya eu te amo muito, e quero ter você ao meu lado por isso fiz esse pedido</p>
+        </div>
+        
+        <!-- Seção das 27 Cartas -->
+        <div class="cartas-section">
+            <h3>💌 27 Cartas de Amor</h3>
+            <p id="countdown-text">
+                <span id="dias-status">Eu te amo ❤️</span>
+            </p>
+            
+            <div id="container-cartas">
+                <!-- Cartas serão geradas aqui via JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Timer do amor
+        function updateTimer() {
+            const startDate = new Date("2025-03-27T00:00:00"); 
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("time-counter").innerText = `${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        // Countdown + Cartas (modificado para ordem decrescente)
+        const container = document.getElementById("container-cartas");
+        const mensagensDasCartas = [
+            "Carta 27: Minha última mensagem antes do grande dia...",
+            "Carta 26: Hoje eu fiquei fazendo as artes pra sua sala kkkkkk, o mais engraçado foi eu entrosando até com a livia, enfim cansativo mas dahora. te amo Soraya",
+            "Carta 25: Hoje você foi naquele mirante que a gente sempre quis ir mas minha mãe não deixa kkkkkk, eu fiz uma montagenzinha pra você e você falou q me amava e eu também te amo Soraya.",
+            "Carta 24: Na madrugada eu fiquei um pouco chateado por não estar com você mas, do seu jeitinho você me incluiu. Além disso você veio na casa do meu PAI, quase não acreditei mas você veio, e tivemos um dia muito muito especial por esses motivos eu te amo Soraya",
+            "Carta 23: Hoje você colocou seu tão aclamado piercing eu achei o máximo, não te vi ainda mas sei que ficou linda, você está mais carinhosa que o normal tô amando esse seu lado de falar muito que me ama e sim eu te amo Soraya.",
+            "Carta 22: Hoje foi um dia de muita ansiedade de nós dois, um querendo ver o outro saudades imensas ( se vemos domingo ) mas enfim fazer o que né eu te amo Soraya.",
+            "Carta 21: Finalmente saimos!!, é sempre muito bom ficar com você e eu tirei uma foto sorrindo com vc!!. teve o negócio da lívia que mecheu um pouco com nós dois mas, na minha cabeça só me fez pensar o quanto eu te amo Soraya.",
+            "Carta 20: A ansiedade voltou, amanhã vamos para a praia dormir juntoss, finalmente podemos ser felizes e isso me faz pensar o taaanto que eu te amo soraya.",
+            "Carta 19: Nós viemos pra praia!!!, como sempre tudo lindo maravilhoso, só na madrugada não consegui fazer o que eu faço, acontece né amanhã vou tentar de novo até porque eu te amo Soraya",
+            "Carta 18: Hoje ficamos o dia todo juntinhos foi uma delícia, ficar com você é sempre muito bom e ainda mais na praia, a madrugada eu vou deixar pro de amanha, eu te amo Soraya",
+            "Carta 17: na madrugada fomos a mais do que já fomos antes, eu fiquei um pouco assustado com esse seu lado confesso mas, amei você mais safada e instigada, o dia na praia foi ótimo pegamos marquinhas e uma cor tudo isso agarradinhos, foi triste se despedir de novo até porque eu te amo soraya.",
+            "Carta 16: ficamos o dia todo na preguiça ( cada um na sua casa ) nem fomos pra aula, não sei o que aconteceu mas ficamos emotivos demais com umas fotos, viver esse romance adolescente é tão bom, espero que dure pra sempre porque eu te amo Soraya",
+            "Carta 15: Hoje fazemos 2 meses de namoro saímos e fui muuuito bom, esses roles com você que a gente simplesmente anda por aí e, conversa sobre tudo, me fazem lembrar o quanto que eu te amo Soraya.",
+            "Carta 14: Fiquei doente, muito gripado mas, não deixei de contar as fofocas quentinhas para você, perdi a minha aliança e chorei, mas você me ajudou como sempre, eu te amo soraya",
+            "Carta 13: Ainda estou doente, nessas horas que eu mais sinto sua falta , querendo você deitada cmg ou cuidando de mim, infelizmente só fico na carência, te amo soraya",
+            "Carta 12: Fiquei o dia todo ansioso para amanhã, até pq eu vou te ver e eu te amo soraya",
+            "Carta 11: Hoje fomos pra festa, rimos, choramos, ficamos desapontados com a sua mãe mas, no fim ficou tudo bem, você tá muito gostosa linda maravilhosa, conheceu todo o pessoal, eu achei muito legal da sua parte, e ainda falou q eu sou o amor da sua vida, eu te amo soraya",
+            "Carta 10: Você conseguiu uns spoilers do presente, não consigo segurar e vc sabe e abusa disso, estamos fazendo o mesmo presente kkkkkkkkk. Mais tarde eu fiz uma brincadeira que não devia não sabia que vc não gostava, tô triste e peço desculpa de novo pra vc no futuro, te amo soraya.",
+            "Carta 9: Hoje vai a cartinha vai ser um pouco maior, não interagimos muito um com o outro, ultimamente eu tô um pouco com receio de falar algumas coisas com você, pra n acabar falando merda ou vc ficar irritada, já aconteceu algumas vezes e eu n qro q isso se repita, você foi dormir chateada hoje comigo de novo, isso por mais que bibi fica martelando na minha cabeça mas enfim eu entendo que você está sensível e não tem muito oq fazer, quando você estiver lendo essa carta, eu tenho certeza que eu vou ter aprendido a lidar com isso, te amo amor",
+            "Carta 8: [Sua mensagem aqui]",
+            "Carta 7: [Sua mensagem aqui]",
+            "Carta 6: [Sua mensagem aqui]",
+            "Carta 5: [Sua mensagem aqui]",
+            "Carta 4: [Sua mensagem aqui]",
+            "Carta 3: [Sua mensagem aqui]",
+            "Carta 2: [Sua mensagem aqui]",
+            "Carta 1: Nosso primeiro dia de contagem regressiva!"
+        ];
+        
+        // Cria cartas em ordem decrescente (27 → 1)
+        for (let i = 27; i >= 1; i--) {
+            const carta = document.createElement("div");
+            carta.className = "carta";
+            carta.innerHTML = `
+                <h4>Carta ${i}</h4>
+                <p>${mensagensDasCartas[27 - i] || `Mensagem especial para o dia ${i}`}</p>
+                <small>${i} dia(s) antes</small>
+            `;
+            container.appendChild(carta);
+        }
+    </script>
+</body>
+</html> 
