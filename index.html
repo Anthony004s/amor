@@ -180,7 +180,6 @@ Eu te amo, Soraya.
         // Countdown + Cartas (modificado para ordem decrescente)
         const container = document.getElementById("container-cartas");
         const mensagensDasCartas = [
-            " ",
             " Hoje eu fiquei fazendo as artes pra sua sala kkkkkk, o mais engraçado foi eu entrosando até com a livia, enfim cansativo mas dahora. te amo Soraya.",
             " Hoje você foi naquele mirante que a gente sempre quis ir mas minha mãe não deixa kkkkkk, eu fiz uma montagenzinha pra você e você falou q me amava e eu também te amo Soraya.",
             " Na madrugada eu fiquei um pouco chateado por não estar com você mas, do seu jeitinho você me incluiu. Além disso você veio na casa do meu PAI, quase não acreditei mas você veio, e tivemos um dia muito muito especial por esses motivos eu te amo Soraya",
@@ -200,7 +199,7 @@ Eu te amo, Soraya.
             " Você conseguiu uns spoilers do presente, não consigo segurar e vc sabe e abusa disso, estamos fazendo o mesmo presente kkkkkkkkk. Mais tarde eu fiz uma brincadeira que não devia não sabia que vc não gostava, tô triste e peço desculpa de novo pra vc no futuro, te amo soraya.",
             " Hoje vai a cartinha vai ser um pouco maior, não interagimos muito um com o outro, ultimamente eu tô um pouco com receio de falar algumas coisas com você, pra n acabar falando merda ou vc ficar irritada, já aconteceu algumas vezes e eu n qro q isso se repita, você foi dormir chateada hoje comigo de novo, isso por mais que bibi fica martelando na minha cabeça mas enfim eu entendo que você está sensível e não tem muito oq fazer, quando você estiver lendo essa carta, eu tenho certeza que eu vou ter aprendido a lidar com isso, te amo amor.",
             " Diferente de ontem hoje foi muuito bom, nós saimos juntos compramos várias coisinhas e eu peguei minha aliança de volta, estar com voçê é sempre maravilhoso, te amo soraya.",
-            "Carta 7: [Sua mensagem aqui]",
+            "Carta 7: ",
             "Carta 6: [Sua mensagem aqui]",
             "Carta 5: [Sua mensagem aqui]",
             "Carta 4: [Sua mensagem aqui]",
@@ -210,7 +209,7 @@ Eu te amo, Soraya.
         ];
         
         // Cria cartas em ordem decrescente (27 → 1)
-        for (let i = 27; i >= 1; i--) {
+        for (let i = 26; i >= 1; i--) {
             const carta = document.createElement("div");
             carta.className = "carta";
             carta.innerHTML = `
